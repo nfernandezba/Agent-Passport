@@ -469,11 +469,13 @@ Agent Passport no:
 
 ## Arquitectura técnica
 
-La solución se distribuye como una SPA estática contenida en un único archivo:
+La solución se distribuye como una SPA estática cuyo punto de entrada es:
 
 ```text
-agent-passport.html
+index.html
 ```
+
+Los favicons y las imágenes utilizadas por el README se organizan en la carpeta `assets`.
 
 El archivo incluye:
 
@@ -490,11 +492,27 @@ El archivo incluye:
 
 No utiliza frameworks de frontend, gestores de paquetes ni procesos de build.
 
+### Estructura recomendada del repositorio
+
+```text
+/
+├── index.html
+├── README.md
+├── .nojekyll
+├── assets/
+│   ├── icons/
+│   └── images/
+│       └── tools/
+└── docs/
+    └── DEPLOYMENT.md
+```
+
+Los resultados de pruebas, sumas SHA-256 y listados de archivos no son necesarios para ejecutar la aplicación y pueden mantenerse fuera de la rama de publicación.
+
 ## Dependencias externas
 
 | Dependencia | Uso |
 |---|---|
-| Google Fonts | Tipografías Space Grotesk e Inter |
 | jsPDF 2.5.1 | Generación local del reporte PDF |
 | Amazon Images | Portadas de libros |
 
@@ -504,7 +522,7 @@ Para una implementación completamente aislada, estas dependencias pueden alojar
 
 ### Abrir directamente
 
-1. Descargá `agent-passport.html`.
+1. Descargá `index.html`.
 2. Abrilo con un navegador moderno.
 3. Elegí **Crear pasaporte** o **Importar JSON**.
 4. Completá las etapas aplicables.
@@ -521,7 +539,7 @@ python -m http.server 8000
 Luego abrí:
 
 ```text
-http://localhost:8000/agent-passport.html
+http://localhost:8000/
 ```
 
 Con Node.js:
@@ -533,12 +551,11 @@ npx serve .
 ## Publicación en GitHub Pages
 
 1. Creá un repositorio.
-2. Copiá `agent-passport.html` en la raíz.
-3. Opcionalmente, renombralo como `index.html`.
-4. Abrí **Settings > Pages**.
-5. Seleccioná **Deploy from a branch**.
-6. Elegí la rama y la carpeta raíz.
-7. Guardá la configuración.
+2. Copiá `index.html`, `README.md`, `.nojekyll` y la carpeta `assets` en la raíz.
+3. Abrí **Settings > Pages**.
+4. Seleccioná **Deploy from a branch**.
+5. Elegí la rama `main` y la carpeta `/ (root)`.
+6. Guardá la configuración.
 
 La aplicación no utiliza MSAL, redirect URI ni APIs protegidas en esta versión.
 
@@ -617,7 +634,7 @@ Agent Passport presenta estas herramientas en un carrusel visual que muestra dos
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://nfernandezba.github.io/Copilot-Studio-Credits-Monitor/"><img src="./tool-copilot-studio-credits-monitor.png" alt="Copilot Studio Credits Monitor" width="100%"></a>
+<a href="https://nfernandezba.github.io/Copilot-Studio-Credits-Monitor/"><img src="./assets/images/tools/tool-copilot-studio-credits-monitor.png" alt="Copilot Studio Credits Monitor" width="100%"></a>
 
 ### Copilot Studio Credits Monitor
 
@@ -626,7 +643,7 @@ Consultá la capacidad comprada, asignada y consumida, las asignaciones por ento
 [Open Copilot Studio Credits Monitor](https://nfernandezba.github.io/Copilot-Studio-Credits-Monitor/)
 </td>
 <td width="50%" valign="top">
-<a href="https://nfernandezba.github.io/Power-Platform-Copilot-Studio-Environment-Assessment/"><img src="./tool-environment-strategy-assessment.png" alt="Environment Strategy Quick Assessment" width="100%"></a>
+<a href="https://nfernandezba.github.io/Power-Platform-Copilot-Studio-Environment-Assessment/"><img src="./assets/images/tools/tool-environment-strategy-assessment.png" alt="Environment Strategy Quick Assessment" width="100%"></a>
 
 ### Environment Strategy Quick Assessment
 
@@ -637,7 +654,7 @@ Evaluá la definición, cobertura, documentación, comunicación y vigencia de l
 </tr>
 <tr>
 <td width="50%" valign="top">
-<a href="https://nfernandezba.github.io/power-platform-tenant-inventory-explorer/"><img src="./tool-tenant-inventory-explorer.png" alt="Power Platform Tenant Inventory Explorer" width="100%"></a>
+<a href="https://nfernandezba.github.io/power-platform-tenant-inventory-explorer/"><img src="./assets/images/tools/tool-tenant-inventory-explorer.png" alt="Power Platform Tenant Inventory Explorer" width="100%"></a>
 
 ### Power Platform Tenant Inventory Explorer
 
@@ -646,7 +663,7 @@ Explorá de forma read-only el inventario del tenant, los entornos, recursos, po
 [Open Power Platform Tenant Inventory Explorer](https://nfernandezba.github.io/power-platform-tenant-inventory-explorer/)
 </td>
 <td width="50%" valign="top">
-<a href="https://nfernandezba.github.io/Power-Platform-Copilot-Studio-Adoption-Strategy-Assessment/"><img src="./tool-adoption-strategy-assessment.png" alt="Adoption Strategy Quick Assessment" width="100%"></a>
+<a href="https://nfernandezba.github.io/Power-Platform-Copilot-Studio-Adoption-Strategy-Assessment/"><img src="./assets/images/tools/tool-adoption-strategy-assessment.png" alt="Adoption Strategy Quick Assessment" width="100%"></a>
 
 ### Adoption Strategy Quick Assessment
 
@@ -1045,11 +1062,13 @@ Agent Passport does not:
 
 ## Technical architecture
 
-The solution is distributed as a static single-file application:
+The solution is distributed as a static SPA with the following entry point:
 
 ```text
-agent-passport.html
+index.html
 ```
+
+Favicons and README images are organized under the `assets` directory.
 
 The file contains:
 
@@ -1066,11 +1085,27 @@ The file contains:
 
 No frontend framework, package manager, or build process is required.
 
+### Recommended repository structure
+
+```text
+/
+├── index.html
+├── README.md
+├── .nojekyll
+├── assets/
+│   ├── icons/
+│   └── images/
+│       └── tools/
+└── docs/
+    └── DEPLOYMENT.md
+```
+
+Test results, SHA-256 checksum files, and file inventories are not required to run the application and may be kept outside the publishing branch.
+
 ## External dependencies
 
 | Dependency | Purpose |
 |---|---|
-| Google Fonts | Space Grotesk and Inter typefaces |
 | jsPDF 2.5.1 | Local PDF generation |
 | Amazon Images | Book covers |
 
@@ -1080,7 +1115,7 @@ For a fully isolated deployment, these dependencies can be hosted locally and th
 
 ### Open directly
 
-1. Download `agent-passport.html`.
+1. Download `index.html`.
 2. Open it in a modern browser.
 3. Select **Create passport** or **Import JSON**.
 4. Complete the applicable stages.
@@ -1097,7 +1132,7 @@ python -m http.server 8000
 Then open:
 
 ```text
-http://localhost:8000/agent-passport.html
+http://localhost:8000/
 ```
 
 With Node.js:
@@ -1109,12 +1144,11 @@ npx serve .
 ## GitHub Pages deployment
 
 1. Create a GitHub repository.
-2. Copy `agent-passport.html` to the repository root.
-3. Optionally rename it to `index.html`.
-4. Open **Settings > Pages**.
-5. Select **Deploy from a branch**.
-6. Choose the branch and root folder.
-7. Save the configuration.
+2. Copy `index.html`, `README.md`, `.nojekyll`, and the `assets` directory to the repository root.
+3. Open **Settings > Pages**.
+4. Select **Deploy from a branch**.
+5. Choose the `main` branch and `/ (root)`.
+6. Save the configuration.
 
 This version does not use MSAL, redirect URIs, or protected APIs.
 
@@ -1193,7 +1227,7 @@ Agent Passport presents these resources in a visual carousel that displays two t
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://nfernandezba.github.io/Copilot-Studio-Credits-Monitor/"><img src="./tool-copilot-studio-credits-monitor.png" alt="Copilot Studio Credits Monitor" width="100%"></a>
+<a href="https://nfernandezba.github.io/Copilot-Studio-Credits-Monitor/"><img src="./assets/images/tools/tool-copilot-studio-credits-monitor.png" alt="Copilot Studio Credits Monitor" width="100%"></a>
 
 ### Copilot Studio Credits Monitor
 
@@ -1202,7 +1236,7 @@ Review purchased, allocated, and consumed capacity, environment assignments, and
 [Open Copilot Studio Credits Monitor](https://nfernandezba.github.io/Copilot-Studio-Credits-Monitor/)
 </td>
 <td width="50%" valign="top">
-<a href="https://nfernandezba.github.io/Power-Platform-Copilot-Studio-Environment-Assessment/"><img src="./tool-environment-strategy-assessment.png" alt="Environment Strategy Quick Assessment" width="100%"></a>
+<a href="https://nfernandezba.github.io/Power-Platform-Copilot-Studio-Environment-Assessment/"><img src="./assets/images/tools/tool-environment-strategy-assessment.png" alt="Environment Strategy Quick Assessment" width="100%"></a>
 
 ### Environment Strategy Quick Assessment
 
@@ -1213,7 +1247,7 @@ Assess the definition, coverage, documentation, communication, and currency of a
 </tr>
 <tr>
 <td width="50%" valign="top">
-<a href="https://nfernandezba.github.io/power-platform-tenant-inventory-explorer/"><img src="./tool-tenant-inventory-explorer.png" alt="Power Platform Tenant Inventory Explorer" width="100%"></a>
+<a href="https://nfernandezba.github.io/power-platform-tenant-inventory-explorer/"><img src="./assets/images/tools/tool-tenant-inventory-explorer.png" alt="Power Platform Tenant Inventory Explorer" width="100%"></a>
 
 ### Power Platform Tenant Inventory Explorer
 
@@ -1222,7 +1256,7 @@ Explore tenant inventory, environments, resources, DLP policies, and governance 
 [Open Power Platform Tenant Inventory Explorer](https://nfernandezba.github.io/power-platform-tenant-inventory-explorer/)
 </td>
 <td width="50%" valign="top">
-<a href="https://nfernandezba.github.io/Power-Platform-Copilot-Studio-Adoption-Strategy-Assessment/"><img src="./tool-adoption-strategy-assessment.png" alt="Adoption Strategy Quick Assessment" width="100%"></a>
+<a href="https://nfernandezba.github.io/Power-Platform-Copilot-Studio-Adoption-Strategy-Assessment/"><img src="./assets/images/tools/tool-adoption-strategy-assessment.png" alt="Adoption Strategy Quick Assessment" width="100%"></a>
 
 ### Adoption Strategy Quick Assessment
 
